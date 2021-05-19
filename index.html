@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <style>
+        .container{ 
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+            grid-row:2fr;grid-gap:2px;
+        }
+        .keys{
+           
+           padding: 5px;
+           margin: 2px;
+           background-color: bisque;text-align: center;
+           
+       }
+       #clear{
+           background-color: #fc3468;
+           
+       }
+
+       input[type="text"]{
+           border-color: white;
+           width: 100%;
+           height: 80%;
+           font-size: 20px;}
+
+       .keys:first-child{
+        grid-column:1/ span 4;
+       }
+       input[type="button"]{
+          margin-top : 20%;margin-bottom: 20%;
+          height: 70%;width: 70%; 
+       }
+       * {box-sizing: border-box;
+       }
+       #but{
+           background-color: #667fd8;
+       }
+
+
+body          {
+  background: #F6F6F6;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+/* limit the width and center */
+.container   {
+  max-width: 400px;height: 400px;
+  margin: 0 auto;
+  border: 2px solid #111;
+  border-radius: 5px;
+}
+    </style>
+    <script>
+        function show(inp){
+            document.getElementById("rslt").value+=inp;
+        }
+        function sol(){
+            var a=document.getElementById("rslt").value;
+            var b=eval(a);
+            document.getElementById("rslt").value=b;
+        }
+        function allclear(){
+        document.getElementById("rslt").value="";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container" >
+        <div class="keys"><input type="text" id="rslt"></div>
+        <div class="keys"><input type="button" onclick="show(7)" value="7"></div>
+        <div class="keys"><input type="button" onclick="show(9)" value="9"></div>
+        <div class="keys"><input type="button" onclick="show(8)" value="8"></div>
+        <div class="keys"><input type="button" id="but" onclick="show('+')" value="+"></div>
+        <div class="keys"><input type="button" onclick="show(4)" value="4"></div>
+        <div class="keys"><input type="button" onclick="show(5)"  value="5"></div>
+        <div class="keys"><input type="button" onclick="show(6)" value="6"></div>
+        <div class="keys"><input type="button" id="but" onclick="show('-')" value="-"></div>
+        <div class="keys"><input type="button" onclick="show(1)" value="1"></div>
+        <div class="keys"><input type="button" onclick="show(2)" value="2"></div>
+        <div class="keys"><input type="button" onclick="show(3)" value="3"></div>
+        <div class="keys"><input type="button" id="but" onclick="show('*')" value="X"></div>
+        <div class="keys"><input type="button" id="clear" onclick="allclear()" value="C"></div>
+        <div class="keys"><input type="button" onclick="show(0)" value="0"></div>
+        <div class="keys"><input type="button" id="but" onclick="sol()" value="="></div>
+        <div class="keys"><input type="button" id="but" onclick="show('/')" value="/"></div>
+    </div>    
+</body>
+</html>
